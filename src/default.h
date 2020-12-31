@@ -1,20 +1,24 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-const size_t SIGMA_SIZE = 256;
+typedef unsigned int uint;
+const uint SIGMA_SIZE = 256;
+const uint SECTION = 4, SUBSECT = 8;
 
 inline int max(int a, int b)
 {
     return a > b ? a : b;
 }
 
-void printStarLine(uint occ)
+void printStarLine(uint occ = 70)
 {
     cout << endl << endl;
-    for (size_t _ = 1; _ <= occ; _++) cout << '+';
+    for (uint _ = 1; _ <= occ; _++) cout << '+';
     cout << endl;
-    for (size_t _ = 1; _ <= occ; _++) cout << '+';
-    cout << endl << endl;
+    for (uint _ = 1; _ <= occ; _++) cout << '+';
+    cout << endl << endl << endl;
 }
 
 string printText(string txt, uint num)
@@ -23,4 +27,3 @@ string printText(string txt, uint num)
     while (num--) res += ' ';
     return res + txt;
 }
-

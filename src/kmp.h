@@ -1,8 +1,9 @@
 #pragma once
 
-void KMP_preprocessing(string P, size_t M, int *kmp)
+void KMP_preprocessing(string P, uint M, int *kmp)
 {
-   size_t i = 0, j = kmp[0] = -1;
+    uint i = 0;
+    int j = kmp[0] = -1;
 
    while (i < M)
    {   
@@ -12,10 +13,10 @@ void KMP_preprocessing(string P, size_t M, int *kmp)
    }
 }
 
-uint knuthMorrisPratt(string T, size_t N, string P, size_t M)
+uint knuthMorrisPratt(string T, uint N, string P, uint M)
 {
    uint i = 0, cnt = 0;
-   int *kmp = new int[M + 1];
+   int *kmp = new int[M];
    int j = 0;
 
    KMP_preprocessing(P, M, kmp);

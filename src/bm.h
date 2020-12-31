@@ -1,6 +1,6 @@
 #pragma once
 
-void getSuffixes(string P, size_t M, int *s)
+void getSuffixes(string P, uint M, int *s)
 {
    int f, g = M - 1;
    s[M - 1] = M;
@@ -17,29 +17,29 @@ void getSuffixes(string P, size_t M, int *s)
    }
 }
 
-void goodSuffix(string P, size_t M, uint *gs)
+void goodSuffix(string P, uint M, uint *gs)
 {
    int *s = new int[M + 1];
-   size_t j = 0;
+   uint j = 0;
 
    getSuffixes(P, M, s);
-   for (size_t i = 0; i < M; i++) gs[i] = M;
+   for (uint i = 0; i < M; i++) gs[i] = M;
    
    for (int i = M - 1; i >= 0; i--)
       if (s[i] == i + 1)
          for (; j < M - i - 1; j++)
             if (gs[j] == M) gs[j] = M - i - 1;
 
-   for (size_t i = 0; i <= M - 2; i++) gs[M - s[i] - 1] = M - i - 1;
+   for (uint i = 0; i <= M - 2; i++) gs[M - s[i] - 1] = M - i - 1;
 }
 
-void badCharacter(string P, size_t M, uint *bc)
+void badCharacter(string P, uint M, uint *bc)
 {
-   for (size_t i = 0; i < SIGMA_SIZE; i++) bc[i] = M;
-   for (size_t i = 0; i < M - 1; i++) bc[(size_t)P[i]] = M - i - 1;
+   for (uint i = 0; i < SIGMA_SIZE; i++) bc[i] = M;
+   for (uint i = 0; i < M - 1; i++) bc[(uint)P[i]] = M - i - 1;
 }
 
-uint boyerMoore(string T, size_t N, string P, size_t M)
+uint boyerMoore(string T, uint N, string P, uint M)
 {
    uint i = 0, cnt = 0;
    uint *gs = new uint[M + 1], *bc = new uint[SIGMA_SIZE];
@@ -51,10 +51,9 @@ uint boyerMoore(string T, size_t N, string P, size_t M)
    while (i <= N - M)
    {
       for (j = M - 1; j >= 0 && P[j] == T[i + j]; j--);
-      if (j >= 0) i += max( gs[j], bc[(size_t)T[i + j]] - M + j + 1 );
+      if (j >= 0) i += max( gs[j], bc[(uint)T[i + j]] - M + j + 1 );
       else cnt++, i += gs[0];  
    }
 
    return cnt;
 }
-
