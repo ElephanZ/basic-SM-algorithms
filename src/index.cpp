@@ -8,29 +8,29 @@
 
 int main()
 {
-    string functionNames[] { "Naive o BruteForce", "Boyer-Moore", "Horspool", "Knuth-Morris-Pratt", "Rabin-Karp" };
+    string functionNames[] { "Naive", "Boyer-Moore", "Horspool", "Knuth-Morris-Pratt", "Rabin-Karp" };
     uint(*searchFunction[])(string, uint, string, uint) { bruteForce, boyerMoore, horspool, knuthMorrisPratt, rabinKarp };
 
     string t = "", p = "";
     uint n = 0, m = 0;
 
     printStarLine();
-    cout << printText("DATA INPUT: ", SECTION);
+    cout << printText(SECTION, "DATA INPUT: ");
 
     do
     {
-        cout << endl << printText("Write the text T: ", SUBSECT);
+        cout << endl << printText(SUBSECT, "Write the text T: ");
         getline(cin, t);
-        cout << printText("Write the pattern P: ", SUBSECT);
+        cout << printText(SUBSECT, "Write the pattern P: ");
         getline(cin, p);
 
         n = t.length(), m = p.length();
     }
     while (n <= 1 || m <= 1 || m > n);
 
-    cout << endl << printText("NUMBER OF OCCURRENCES FOUND: ", SECTION) << endl;
+    cout << endl << printText(SECTION, "NUMBER OF OCCURRENCES FOUND: ") << endl;
     for (uint _ = 0; _ < 5; _++)
-        cout << printText(functionNames[_] + " algorithm: " + to_string((*searchFunction[_])(t, n, p, m)), SUBSECT) << endl;
+        cout << printText(SUBSECT, functionNames[_] + " algorithm: " + to_string((*searchFunction[_])(t, n, p, m))) << endl;
 
     printStarLine();
 

@@ -21,7 +21,7 @@ void printStarLine(uint occ = 70)
     cout << endl << endl << endl;
 }
 
-string printText(string txt, uint num)
+string printText(uint num, string txt)
 {
     string res = "";
     while (num--) res += ' ';
