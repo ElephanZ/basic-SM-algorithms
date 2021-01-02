@@ -30,4 +30,3 @@ uint knuthMorrisPratt(string T, uint N, string P, uint M)
 
    return cnt;
 }
-

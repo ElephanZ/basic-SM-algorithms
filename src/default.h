@@ -15,9 +15,9 @@ inline int max(int a, int b)
 void printStarLine(uint occ = 70)
 {
     cout << endl << endl;
-    for (uint _ = 1; _ <= occ; _++) cout << '+';
+    for (uint _ = 1; _ <= occ; _++) cout << '*';
     cout << endl;
-    for (uint _ = 1; _ <= occ; _++) cout << '+';
+    for (uint _ = 1; _ <= occ; _++) cout << '*';
     cout << endl << endl << endl;
 }
 
