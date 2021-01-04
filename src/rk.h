@@ -18,14 +18,14 @@ uint rabinKarp(string T, uint N, string P, uint M)
       while (j < M && T[s + j] == P[j]) j++;
       return j >= M;
    };
-   auto rehash = [&](uint s)
+   auto rehash_t = [&](uint s)
    {
       return ((ht - T[s]*h) << 1) + T[M + s];
    };
 
    rabinKarp_preprocessing(P, T, M, h, ht, hp);
 
-   for (uint i = 0; i <= N - M; ht = rehash(i), i++)
+   for (uint i = 0; i <= N - M; ht = rehash_t(i), i++)
       if (ht == hp && check(i)) cnt++;
    
    return cnt;

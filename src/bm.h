@@ -1,25 +1,25 @@
 #pragma once
 
-void getSuffixes(string P, uint M, int* s)
+void suffixes(string P, uint M, int* s)
 {
-    s[M - 1] = M;
-    for (int i = M - 2, g = M - 1, f; i >= 0; i--)
-    {
-        if (i > g && s[i + M - f - 1] < i - g) s[i] = s[i + M - f - 1];
-        else
-        {
-            f = i, g = (i < g ? i : g);
-            while (g >= 0 && P[g] == P[g + M - f - 1]) g--;
-            s[i] = f - g;
-        }
-    }
+   s[M - 1] = M;
+   for (int i = M - 2, g = M - 1, f; i >= 0; i--)
+   {
+      if (i > g && s[i + M - f - 1] < i - g) s[i] = s[i + M - f - 1];
+      else
+      {
+         f = i, g = (i < g ? i : g);
+         while (g >= 0 && P[g] == P[g + M - f - 1]) g--;
+         s[i] = f - g;
+      }
+   }
 }
 
 void goodSuffix(string P, uint M, uint *gs)
 {
    int *s = new int[M];
 
-   getSuffixes(P, M, s);
+   suffixes(P, M, s);
    for (uint i = 0; i < M; i++) gs[i] = M;
    
    for (int i = M - 1; i >= 0; i--)
