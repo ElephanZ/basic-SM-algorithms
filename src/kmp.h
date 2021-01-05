@@ -1,31 +1,36 @@
 #pragma once
 
-void KMP_preprocessing(string P, uint M, int *lps)
+void KMP_preprocessing(string P, uint M, uint *lps)
 {
-   uint i = 0;
-   int j = lps[0] = -1;
+   uint i = 1, len = lps[0] = 0;
 
    while (i < M)
-   {   
-      while (j > -1 && P[i] != P[j]) j = lps[j];
-      i++, j++;
-      lps[i] = (i < M && P[i] == P[j] ? lps[j] : j);
+   {
+      if (P[i] == P[len]) len++, lps[i++] = len;
+      else
+      {
+          if (len != 0) len = lps[len - 1];
+          else lps[i++] = 0;
+      }
    }
 }
 
 uint knuthMorrisPratt(string T, uint N, string P, uint M)
 {
-   uint i = 0, cnt = 0;
-   int *lps = new int[M];
-   int j = 0;
+   uint i = 0, j = 0, cnt = 0;
+   uint *lps = new uint[M];
 
    KMP_preprocessing(P, M, lps);
 
    while (i < N)
    {
-      while (j > -1 && P[j] != T[i]) j = lps[j];
-      i++, j++;
-      if (j >= M) cnt++, j = lps[j];
+      if (P[j] == T[i]) j++, i++;
+      if (j == M) cnt++, j = lps[j-1];
+      else if (i < N && P[j] != T[i])
+      {
+          if (j != 0) j = lps[j - 1];
+          else i++;
+      }
    }
 
    return cnt;
