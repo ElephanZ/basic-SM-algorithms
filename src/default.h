@@ -5,7 +5,7 @@ using namespace std;
 
 typedef unsigned int uint;
 const uint SIGMA_SIZE = 256;
-const uint SECTION = 4, SUBSECT = 8;
+const short int SECTION = 4, SUBSECT = 8;
 
 inline int max(int a, int b)
 {
