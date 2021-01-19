@@ -34,5 +34,5 @@ int main()
 
     printStarLine();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
