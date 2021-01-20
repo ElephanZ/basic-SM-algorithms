@@ -1,6 +1,6 @@
 #pragma once
 
-void suffixes(const string P, uint M, int* s)
+void suffixes(const string P, const uint M, int* s)
 {
    s[M - 1] = M;
    for (int i = M - 2, g = M - 1, f; i >= 0; i--)
