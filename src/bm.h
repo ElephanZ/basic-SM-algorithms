@@ -1,6 +1,6 @@
 #pragma once
 
-void suffixes(string P, uint M, int* s)
+void suffixes(const string P, uint M, int* s)
 {
    s[M - 1] = M;
    for (int i = M - 2, g = M - 1, f; i >= 0; i--)
@@ -15,7 +15,7 @@ void suffixes(string P, uint M, int* s)
    }
 }
 
-void goodSuffix(string P, uint M, uint *gs)
+void goodSuffix(const string P, const uint M, uint *gs)
 {
    int *s = new int[M];
 
@@ -30,13 +30,13 @@ void goodSuffix(string P, uint M, uint *gs)
    for (uint i = 0; i <= M - 2; i++) gs[M - s[i] - 1] = M - i - 1;
 }
 
-void badCharacter(string P, uint M, uint *bc)
+void badCharacter(const string P, const uint M, uint *bc)
 {
    for (uint i = 0; i < SIGMA_SIZE; i++) bc[i] = M;
    for (uint i = 0; i < M - 1; i++) bc[(uint)P[i]] = M - i - 1;
 }
 
-uint boyerMoore(string T, uint N, string P, uint M)
+uint boyerMoore(const string T, const uint N, const string P, const uint M)
 {
    uint i = 0, cnt = 0;
    uint *gs = new uint[M + 1], *bc = new uint[SIGMA_SIZE];
