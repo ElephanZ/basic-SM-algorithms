@@ -8,7 +8,8 @@ void suffixes(const string P, const uint M, int* s)
       if (i > g && s[i + M - f - 1] < i - g) s[i] = s[i + M - f - 1];
       else
       {
-         f = i, g = (i < g ? i : g);
+         f = i;
+         if (i < g) g = i;
          while (g >= 0 && P[g] == P[g + M - f - 1]) g--;
          s[i] = f - g;
       }
