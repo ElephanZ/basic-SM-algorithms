@@ -12,7 +12,7 @@ uint rabinKarp(const string T, const uint N, const string P, const uint M)
 {
    uint h = 1, hp = 0, ht = 0, cnt = 0;
 
-   auto rehash_t = [&](const uint s) { return ((ht - T[s]*h) << 1) + T[M + s]; };
+   auto t_rehash = [&](const uint s) { return ((ht - T[s]*h) << 1) + T[M + s]; };
    auto check = [=](const uint s)
    {
       uint j = 0;
@@ -22,7 +22,7 @@ uint rabinKarp(const string T, const uint N, const string P, const uint M)
 
    rabinKarp_preprocessing(P, T, M, h, ht, hp);
 
-   for (uint i = 0; i <= N - M; ht = rehash_t(i), i++)
+   for (uint i = 0; i <= N - M; ht = t_rehash(i), i++)
       if (ht == hp && check(i)) cnt++;
    
    return cnt;
