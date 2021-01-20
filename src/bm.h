@@ -28,6 +28,8 @@ void goodSuffix(const string P, const uint M, uint *gs)
             if (gs[j] == M) gs[j] = M - i - 1;
 
    for (uint i = 0; i <= M - 2; i++) gs[M - s[i] - 1] = M - i - 1;
+   
+   delete[] s;
 }
 
 void badCharacter(const string P, const uint M, uint *bc)
@@ -51,6 +53,9 @@ uint boyerMoore(const string T, const uint N, const string P, const uint M)
       if (j >= 0) i += max( gs[j], bc[(uint)T[i + j]] - M + j + 1 );
       else cnt++, i += gs[0];  
    }
-
+   
+   delete[] gs;
+   delete[] bc;
+   
    return cnt;
 }
