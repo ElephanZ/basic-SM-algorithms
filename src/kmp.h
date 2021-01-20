@@ -33,5 +33,7 @@ uint knuthMorrisPratt(const string T, const uint N, const string P, const uint M
       }
    }
 
+   delete[] lps;
+   
    return cnt;
 }
