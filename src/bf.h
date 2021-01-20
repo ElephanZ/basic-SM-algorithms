@@ -1,10 +1,10 @@
 #pragma once
 
-uint bruteForce(string T, uint N, string P, uint M)
+uint bruteForce(const string T, const uint N, const string P, const uint M)
 {
     uint cnt = 0;
 
-    auto check = [=](uint s)
+    auto check = [=](const uint s)
     {
         uint j = 0;
         while (j < M && T[s + j] == P[j]) j++;
