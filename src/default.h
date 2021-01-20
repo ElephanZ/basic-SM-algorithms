@@ -7,12 +7,12 @@ typedef unsigned int uint;
 const uint SIGMA_SIZE = 256;
 const short int SECTION = 4, SUBSECT = 8;
 
-inline int max(int a, int b)
+inline int max(const int a, const int b)
 {
     return a > b ? a : b;
 }
 
-void printStarLine(uint occ = 70)
+void printStarLine(const uint occ = 70)
 {
     cout << endl << endl;
     for (uint _ = 1; _ <= occ; _++) cout << '*';
@@ -21,7 +21,7 @@ void printStarLine(uint occ = 70)
     cout << endl << endl << endl;
 }
 
-string printText(uint num, string txt)
+string printText(uint num, const string txt)
 {
     string res = "";
     while (num--) res += ' ';
