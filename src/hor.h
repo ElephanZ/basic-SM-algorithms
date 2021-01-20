@@ -23,5 +23,7 @@ uint horspool(const string T, const uint N, const string P, const uint M)
    for (uint i = 0; i <= N - M; i += hbc[(uint)T[M + i - 1]])
       if (check(i)) cnt++;
 
+   delete[] hbc;
+   
    return cnt;
 }
