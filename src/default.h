@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef unsigned int uint;
+using uint = unsigned int;
 const uint SIGMA_SIZE = 256;
 const short int SECTION = 4, SUBSECT = 8;
 
